@@ -1,12 +1,5 @@
 pipeline {
     agent any
-
-     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/shafiq-mir/jenkins.git'
-            }
-
     stages {
         stage('Check Router Interface Status') {
             steps {
