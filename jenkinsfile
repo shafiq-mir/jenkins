@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Check Router Interface Status') {
+            steps {
+                script {
+                    def routerIp = '10.0.0.80'
+                    def username = 'shafiq' 
+                    def password = 'cisco'
+
+                    def command = "ssh ${username}@${routerIp} 'show ip interface brief'"
+
+                    def result = sh(script: command, returnStdout: true).trim()
+
+                    echo "Interface Status:\n${result}"
+                }
+            }
+        }
+    }
+}
